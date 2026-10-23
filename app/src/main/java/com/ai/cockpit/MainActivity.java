@@ -1,4 +1,6 @@
 package com.ai.cockpit;
+import android.os.BatteryManager;
+import android.os.Build;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
