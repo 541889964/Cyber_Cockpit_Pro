@@ -1,0 +1,27 @@
+name: Build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: 'temurin', java-version: '17' }
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: '7.6.1' }
+      - name: Build with Gradle
+        run: |
+          gradle wrapper --gradle-version 7.6.1
+          ./gradlew assembleRelease
+      - name: Upload APK
+        run: |
+          mkdir -p build_output
+          mv app/build/outputs/apk/release/app-release.apk build_output/CyberCockpit.apk
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          files: build_output/CyberCockpit.apk
+        env: { GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }

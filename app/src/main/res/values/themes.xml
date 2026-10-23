@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.Cockpit" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#0A0F1D</item>
+        <item name="colorSecondary">#00F0FF</item>
+        <item name="android:windowBackground">@drawable/bg_neon_cockpit</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

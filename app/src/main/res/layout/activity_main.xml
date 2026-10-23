@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:fitsSystemWindows="true">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="10dp">
+
+        <!-- 顶部监控座舱 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            android:background="@drawable/bg_cockpit" android:padding="12dp" android:elevation="8dp">
+            
+            <TextView android:id="@+id/tvSysInfo" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="SYSTEM ONLINE" android:textColor="#00F0FF" android:textStyle="bold" android:textSize="12sp" android:fontFamily="monospace" android:letterSpacing="0.1"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                <EditText android:id="@+id/etKey" android:layout_width="0dp" android:layout_weight="1" android:layout_height="38dp"
+                    android:hint="ENTER API KEY" android:textColor="#FFF" android:textColorHint="#64748B" android:background="#0A0F1D" android:padding="8dp" android:textSize="12sp"/>
+                <Button android:id="@+id/btnSaveKey" android:layout_width="wrap_content" android:layout_height="38dp" android:text="LINK" android:textSize="11sp" android:textColor="#000" android:backgroundTint="#00F0FF" android:insetTop="0dp" android:insetBottom="0dp" android:layout_marginLeft="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="6dp">
+                <Spinner android:id="@+id/spinnerModel" android:layout_width="0dp" android:layout_weight="1" android:layout_height="34dp" android:background="#0A0F1D"/>
+                <Spinner android:id="@+id/spinnerMode" android:layout_width="0dp" android:layout_weight="1" android:layout_height="34dp" android:background="#0A0F1D" android:layout_marginLeft="4dp"/>
+                <Spinner android:id="@+id/spinnerEngine" android:layout_width="0dp" android:layout_weight="1" android:layout_height="34dp" android:background="#0A0F1D" android:layout_marginLeft="4dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 聊天矩阵 -->
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvChat"
+            android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="10dp" android:clipToPadding="false" android:paddingBottom="10dp"/>
+
+        <!-- 底部指令输入 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+            android:background="@drawable/bg_input_glow" android:padding="6dp" android:elevation="10dp">
+            <EditText android:id="@+id/etMsg" android:layout_width="0dp" android:layout_weight="1" android:layout_height="44dp"
+                android:hint="输入操作指令..." android:textColor="#FFF" android:textColorHint="#64748B" android:background="@null" android:padding="10dp" android:textSize="14sp"/>
+            <Button android:id="@+id/btnSend" android:layout_width="80dp" android:layout_height="44dp" android:text="EXECUTE" android:textSize="12sp" android:textColor="#000" android:backgroundTint="#00F0FF" android:insetTop="0dp" android:insetBottom="0dp" app:cornerRadius="22dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
